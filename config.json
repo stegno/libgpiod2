@@ -1,0 +1,24 @@
+{
+  "name": "libgpiod2",
+  "version": "1.0",
+  "slug": "libgpiod2",
+  "description": "Add-on to install libgpiod2",
+  "arch": ["armv7", "armhf", "aarch64", "amd64", "i386"],
+  "startup": "services",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "host_network": true,
+  "host_dbus": true,
+  "host_ipc": true,
+  "init": false,
+  "privileged": ["SYS_ADMIN", "DAC_READ_SEARCH"],
+  "full_access": true,
+  "map": ["share:rw", "config:rw", "ssl:rw"],
+  "image": "debian:latest",
+  "command": [
+    "/bin/bash",
+    "-c",
+    "apt-get update && apt-get install -y libgpiod2 && tail -f /dev/null"
+  ]
+}
